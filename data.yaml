@@ -1,0 +1,5 @@
+train: /content/drive/MyDrive/Colab_Notebooks/project_2/output/images/train
+val: /content/drive/MyDrive/Colab_Notebooks/project_2/output/images/val
+test: /content/drive/MyDrive/Colab_Notebooks/project_2/output/images/test
+nc: 3  # Number of classes
+names: ['standing', 'lying', 'eating']  # Class names
