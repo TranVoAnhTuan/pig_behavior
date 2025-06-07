@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Processing App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Video Processing App</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="mb-4 text-red-500">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Upload Video</label>
+                <input type="file" name="file" accept=".mp4,.avi,.mov" class="mt-1 block w-full border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">ROI Rectangle (x1, y1, x2, y2)</label>
+                <div class="flex space-x-2">
+                    <input type="number" name="roi_x1" value="88" class="mt-1 block w-full border-gray-300 rounded-md">
+                    <input type="number" name="roi_y1" value="20" class="mt-1 block w-full border-gray-300 rounded-md">
+                    <input type="number" name="roi_x2" value="2671" class="mt-1 block w-full border-gray-300 rounded-md">
+                    <input type="number" name="roi_y2" value="1424" class="mt-1 block w-full border-gray-300 rounded-md">
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Unusual Threshold (seconds)</label>
+                <input type="number" name="unusual_threshold" value="30" class="mt-1 block w-full border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Unusual Display (seconds)</label>
+                <input type="number" name="unusual_display" value="20" class="mt-1 block w-full border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Eating Grace Period (seconds)</label>
+                <input type="number" name="eating_grace" value="30" class="mt-1 block w-full border-gray-300 rounded-md">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Process Video</button>
+        </form>
+    </div>
+</body>
+</html>
