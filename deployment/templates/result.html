@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+        <h1 class="text-2xl font-bold mb-6 text-center">Processing Result</h1>
+        <div class="mb-4">
+            <video controls class="w-full rounded-md">
+                <source src="{{ url_for('serve_video', filename=video_url) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="flex space-x-4">
+            <a href="{{ url_for('serve_video', filename=video_url) }}" download class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700">Download Video</a>
+            <a href="{{ url_for('index') }}" class="bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>
